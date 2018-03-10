@@ -37,6 +37,8 @@ class Mapper {
     }
     execute(function_name, ...parameters){
         let fn = this.map[function_name].filter(fn=>check_same_parameters.apply(fn.parameters, parameters))
+
+        // Does it make sense to execute more than one?
         if (fn.length == 1)
             return fn[0].code.apply(null, parameters)
     }
