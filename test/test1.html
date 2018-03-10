@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script src="../src/t.js"></script>
+	</head>
+	<body>
+		<script>
+			let m = new Mapper()
+				m.add(new Function(
+				    "function1", 
+				    ()=>{ console.log(1) }
+				))
+				m.add(new Function(
+				    "function1", 
+				    (e)=>{
+				        console.log(2)
+				        console.log(e)
+				        return e
+				    },
+				    [new Parameter("int", "numero", e=>Number.isInteger(e),0)]
+				))
+
+				console.log(m)
+
+				m.execute("function1")
+				m.execute("function1", 1)
+		</script>
+	</body>
+</html>
